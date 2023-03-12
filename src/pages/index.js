@@ -8,14 +8,6 @@ import Search from '@/components/Search';
 const inter = Inter({ subsets: ['latin'] });
 const apiKey = 'ce481526a947c75c2be0a123cad74757';
 
-// const weatherInfo = () => {
-//   fetch(
-//     `https://api.openweathermap.org/data/2.5/weather?q=jammu&appid=${apiKey}`
-//   )
-//     .then((respose) => respose.json())
-//     .then((data) => console.log(data));
-// };
-
 export default function Home() {
   const [city, setCity] = useState();
   const [temperature, setTemperature] = useState();
@@ -40,17 +32,39 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-orange-300 to-rose-300">
+        {city && (
+          <Search
+            setCity={setCity}
+            setTemperature={setTemperature}
+            setDescription={setDescription}
+            setIcon={setIcon}
+          />
+        )}
 
-        <Search
-          setCity={setCity}
-          setTemperature={setTemperature}
-          setDescription={setDescription}
-          setIcon={setIcon}
-        />
         {city && (
           <Card city={city} temp={temperature} desc={description} icon={icon} />
         )}
 
+        {!city && (
+          <div class="flex items-center justify-center space-x-2">
+            <div
+              class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              role="status"
+            >
+              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                Loading...
+              </span>
+            </div>
+            <div
+              class="inline-block h-12 w-12 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+              role="status"
+            >
+              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                Loading...
+              </span>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
