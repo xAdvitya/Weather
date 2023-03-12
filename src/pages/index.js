@@ -39,10 +39,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="bg-gradient-to-r from-orange-300 to-rose-300">
-        <h4 className="invisible text-center  font-extrabold text-blue-600 py-10">
-          Weather
-        </h4>
+      <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-orange-300 to-rose-300">
 
         <Search
           setCity={setCity}
@@ -54,9 +51,6 @@ export default function Home() {
           <Card city={city} temp={temperature} desc={description} icon={icon} />
         )}
 
-        <h1 className="invisible text-center text-5xl font-extrabold text-blue-600 py-48">
-          Weather
-        </h1>
       </div>
     </>
   );

@@ -23,7 +23,7 @@ const Search = ({ setCity, setTemperature, setDescription, setIcon }) => {
   }
 
   return (
-    <div class="flex justify-center mx-auto mt-16 ">
+    <div class="flex justify-center mx-auto ">
       <div
         class="relative mb-3 xl:w-72 bg-gradient-to-r from-orange-400 to-rose-400 rounded-lg "
         data-te-input-wrapper-init
