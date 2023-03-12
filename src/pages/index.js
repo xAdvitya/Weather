@@ -13,6 +13,7 @@ export default function Home() {
   const [temperature, setTemperature] = useState();
   const [description, setDescription] = useState();
   const [icon, setIcon] = useState();
+  const [invalid, setInvalid] = useState(false);
 
   useEffect(() => {
     async function getWeather(city = 'punjab') {
@@ -32,12 +33,14 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-orange-300 to-rose-300">
+        {invalid && <h1 className="text-white mb-1">Enter Valid City Name</h1>}
         {city && (
           <Search
             setCity={setCity}
             setTemperature={setTemperature}
             setDescription={setDescription}
             setIcon={setIcon}
+            setInvalid={setInvalid}
           />
         )}
 
@@ -46,12 +49,12 @@ export default function Home() {
         )}
 
         {!city && (
-          <div class="flex items-center justify-center space-x-2">
+          <div className="flex items-center justify-center space-x-2">
             <div
-              class="inline-block h-16 w-16 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-100 motion-reduce:animate-[spin_1.5s_linear_infinite]"
+              className="inline-block h-16 w-16 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-100 motion-reduce:animate-[spin_1.5s_linear_infinite]"
               role="status"
             >
-              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
                 Loading...
               </span>
             </div>
