@@ -1,11 +1,8 @@
 import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
 import Card from '@/components/Card';
 import { useEffect, useState } from 'react';
 import rawAxios from 'axios';
 import Search from '@/components/Search';
-
-const inter = Inter({ subsets: ['latin'] });
 const apiKey = 'ce481526a947c75c2be0a123cad74757';
 
 export default function Home() {
