@@ -6,6 +6,7 @@ const Search = ({ setCity, setTemperature, setDescription, setIcon }) => {
     if (event.key === 'Enter') {
       const searchText = event.target.value;
       getWeather(searchText);
+      setCity("");
       event.target.value = '';
     }
   };
@@ -31,7 +32,7 @@ const Search = ({ setCity, setTemperature, setDescription, setIcon }) => {
         <input
           onKeyDown={searchHandler}
           type="search"
-          class="peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none "
+          class="text-white caret-white peer block min-h-[auto] w-full rounded border-0 bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none "
           placeholder="Search"
         />
       </div>
