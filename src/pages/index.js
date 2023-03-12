@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-orange-300 to-rose-300">
-        {city && (
+        {!city && (
           <Search
             setCity={setCity}
             setTemperature={setTemperature}
@@ -41,22 +41,14 @@ export default function Home() {
           />
         )}
 
-        {city && (
+        {!city && (
           <Card city={city} temp={temperature} desc={description} icon={icon} />
         )}
 
-        {!city && (
+        {city && (
           <div class="flex items-center justify-center space-x-2">
             <div
-              class="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-              role="status"
-            >
-              <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
-                Loading...
-              </span>
-            </div>
-            <div
-              class="inline-block h-12 w-12 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+              class="inline-block h-16 w-16 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] text-neutral-100 motion-reduce:animate-[spin_1.5s_linear_infinite]"
               role="status"
             >
               <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
